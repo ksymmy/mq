@@ -1,4 +1,4 @@
-package com.ksymmy.mq;
+package com.kai.rabbitmq;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +41,7 @@ public class MsgProducer implements RabbitTemplate.ConfirmCallback {
      */
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
-        logger.info(" 回调id:" + correlationData);
+        logger.info(" 回调id:" + correlationData.getId());
         if (ack) {
             logger.info("消息成功消费");
         } else {
